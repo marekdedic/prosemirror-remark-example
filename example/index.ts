@@ -3,6 +3,7 @@ import "prosemirror-example-setup/style/style.css";
 import "prosemirror-menu/style/menu.css";
 
 import { exampleSetup } from "prosemirror-example-setup";
+import { MarkdownExtension } from "prosemirror-remark";
 import { EditorState } from "prosemirror-state";
 import { ProseMirrorUnified } from "prosemirror-unified";
 import { EditorView } from "prosemirror-view";
@@ -13,7 +14,6 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 
-import { MarkdownExtension } from "../src";
 import { defaultContent } from "./defaultContent";
 
 const editor = document.querySelector("#editor")!;
