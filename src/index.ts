@@ -2,7 +2,7 @@ import "prosemirror-view/style/prosemirror.css";
 import "prosemirror-example-setup/style/style.css";
 import "prosemirror-menu/style/menu.css";
 
-import { exampleSetup } from "prosemirror-example-setup";
+//import { exampleSetup } from "prosemirror-example-setup";
 import { MarkdownExtension } from "prosemirror-remark";
 import { EditorState } from "prosemirror-state";
 import { ProseMirrorUnified } from "prosemirror-unified";
@@ -29,7 +29,8 @@ class ProseMirrorView {
     this.view = new EditorView(target, {
       state: EditorState.create({
         doc: adapter.parse(content)!,
-        plugins: exampleSetup({ schema: schema }),
+        //plugins: exampleSetup({ schema: schema }),
+        plugins: adapter.plugins(),
         schema,
       }),
       dispatchTransaction: (tr): void => {

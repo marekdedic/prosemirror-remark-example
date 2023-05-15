@@ -10,7 +10,7 @@ module.exports = () => {
     devtool: "source-map",
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./example/index.html",
+        template: "./src/index.html",
       }),
       new MiniCssExtractPlugin(),
       new SubresourceIntegrityPlugin(),
@@ -35,7 +35,7 @@ module.exports = () => {
     resolve: {
       extensions: [".ts", ".js"],
     },
-    entry: "./example/index.ts",
+    entry: "./src/index.ts",
     output: {
       filename: "[name].js",
     },
