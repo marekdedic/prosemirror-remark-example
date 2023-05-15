@@ -1,29 +1,30 @@
 {
-  "name": "prosemirror-remark",
+  "name": "prosemirror-remark-example",
   "version": "0.1.0",
-  "description": "ProseMirror Remark integration",
-  "keywords": [
-    "prosemirror",
-    "remark"
-  ],
-  "homepage": "https://github.com/marekdedic/prosemirror-remark#readme",
-  "bugs": {
-    "url": "https://github.com/marekdedic/prosemirror-remark/issues"
-  },
+  "description": "ProseMirror Remark integration example",
   "license": "MIT",
   "author": "Marek Dědič",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marekdedic/prosemirror-remark.git"
+    "url": "git+https://github.com/marekdedic/prosemirror-remark-example.git"
   },
   "scripts": {
     "build": "webpack",
     "lint": "eslint --color 'src/**/*.ts' 'webpack.config.js'"
   },
-  "peerDependencies": {
-    "prosemirror-model": "^1.19.0",
+  "dependencies": {
+    "prosemirror-example-setup": "^1.2.1",
+    "prosemirror-menu": "^1.2.1",
+    "prosemirror-remark": "^0.1.0",
     "prosemirror-state": "^1.4.2",
-    "prosemirror-view": "^1.30.2"
+    "prosemirror-unified": "^0.1.0",
+    "prosemirror-view": "^1.30.2",
+    "rehype-sanitize": "^5.0.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.0",
@@ -37,26 +38,9 @@
     "html-webpack-plugin": "^5.5.1",
     "mini-css-extract-plugin": "^2.7.5",
     "prettier": "^2.8.7",
-    "prosemirror-example-setup": "^1.2.1",
-    "prosemirror-inputrules": "^1.2.0",
-    "prosemirror-markdown": "^1.10.1",
-    "prosemirror-schema-basic": "^1.2.1",
-    "prosemirror-schema-list": "^1.2.2",
-    "rehype-sanitize": "^5.0.1",
-    "rehype-stringify": "^9.0.3",
-    "remark-gfm": "^3.0.1",
-    "remark-parse": "^10.0.1",
-    "remark-rehype": "^10.1.0",
-    "remark-stringify": "^10.0.2",
     "ts-loader": "^9.4.2",
-    "unified": "^10.1.2",
     "webpack": "^5.80.0",
     "webpack-cli": "^5.0.1",
     "webpack-subresource-integrity": "^5.2.0-rc.1"
-  },
-  "dependencies": {
-    "prosemirror-remark": "^0.1.0",
-    "prosemirror-unified": "^0.1.0",
-    "remark-unwrap-images": "^3.0.1"
   }
 }
