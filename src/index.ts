@@ -30,7 +30,7 @@ class ProseMirrorView {
       state: EditorState.create({
         doc: adapter.parse(content)!,
         //plugins: exampleSetup({ schema: schema }),
-        plugins: adapter.plugins(),
+        plugins: [adapter.inputRulesPlugin(), adapter.keymapPlugin()],
         schema,
       }),
       dispatchTransaction: (tr): void => {
