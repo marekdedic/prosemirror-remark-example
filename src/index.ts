@@ -2,14 +2,12 @@ import "prosemirror-view/style/prosemirror.css";
 import "prosemirror-example-setup/style/style.css";
 import "prosemirror-menu/style/menu.css";
 
-//import { exampleSetup } from "prosemirror-example-setup";
 import { MarkdownExtension } from "prosemirror-remark";
 import { EditorState } from "prosemirror-state";
 import { ProseMirrorUnified } from "prosemirror-unified";
 import { EditorView } from "prosemirror-view";
 import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
-//import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
@@ -21,30 +19,21 @@ const preview = document.querySelector("#preview-container")!;
 
 const adapter = new ProseMirrorUnified([new MarkdownExtension()]);
 
-class ProseMirrorView {
-  private readonly view: EditorView;
-
-  public constructor(target: Element, content: string) {
-    const schema = adapter.schema();
-    this.view = new EditorView(target, {
-      state: EditorState.create({
-        doc: adapter.parse(content)!,
-        //plugins: exampleSetup({ schema: schema }),
-        plugins: [adapter.inputRulesPlugin(), adapter.keymapPlugin()],
-        schema,
-      }),
-      dispatchTransaction: (tr): void => {
-        this.view.updateState(this.view.state.apply(tr));
-        void updatePreview(adapter.serialize(this.view.state.doc));
-      },
-    });
-  }
-}
+const view = new EditorView(editor, {
+  state: EditorState.create({
+    doc: adapter.parse(defaultContent),
+    plugins: [adapter.inputRulesPlugin(), adapter.keymapPlugin()],
+    schema: adapter.schema(),
+  }),
+  dispatchTransaction: (tr): void => {
+    view.updateState(view.state.apply(tr));
+    void updatePreview(adapter.serialize(view.state.doc));
+  },
+});
 
 async function updatePreview(source: string): Promise<void> {
   const file = await unified()
     .use(remarkParse)
-    //.use(remarkGfm)
     .use(remarkRehype)
     .use(rehypeSanitize)
     .use(rehypeStringify)
@@ -53,5 +42,4 @@ async function updatePreview(source: string): Promise<void> {
   preview.innerHTML = String(file);
 }
 
-new ProseMirrorView(editor, defaultContent);
 void updatePreview(defaultContent);
