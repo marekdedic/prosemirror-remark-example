@@ -1,5 +1,7 @@
 /* eslint-env node */
 
+const path = require("path");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { SubresourceIntegrityPlugin } = require("webpack-subresource-integrity");
@@ -39,6 +41,9 @@ module.exports = () => {
     },
     resolve: {
       extensions: [".ts", ".js"],
+      alias: {
+        "prosemirror-model": path.resolve("./node_modules/prosemirror-model"),
+      },
     },
     entry: "./src/index.ts",
     output: {
