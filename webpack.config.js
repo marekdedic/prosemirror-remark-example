@@ -43,6 +43,7 @@ module.exports = () => {
       extensions: [".ts", ".js"],
       alias: {
         "prosemirror-model": path.resolve("./node_modules/prosemirror-model"),
+        "prosemirror-state": path.resolve("./node_modules/prosemirror-state"),
       },
     },
     entry: "./src/index.ts",
