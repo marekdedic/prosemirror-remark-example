@@ -1,24 +1,37 @@
 {
   "parserOptions": {
-    "project": "./tsconfig.json",
+    "project": "./tsconfig.json"
   },
   "env": {
     "browser": true,
     "node": false
   },
-  "plugins": ["deprecation", "simple-import-sort", "@typescript-eslint"],
+  "plugins": [
+    "deprecation",
+    "prefer-arrow-functions",
+    "simple-import-sort",
+    "@typescript-eslint"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
   "rules": {
-    "deprecation/deprecation": "warn",
+    "arrow-body-style": ["error", "as-needed"],
+    "camelcase": "error",
     "no-warning-comments": "warn",
+    "strict": ["error", "never"],
+    "deprecation/deprecation": "warn",
+    "prefer-arrow-functions/prefer-arrow-functions": [
+      "error",
+      {
+        "allowNamedFunctions": true
+      }
+    ],
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "strict": ["error", "never"],
     "@typescript-eslint/array-type": ["error", { "default": "generic" }],
     "@typescript-eslint/consistent-indexed-object-style": "error",
     "@typescript-eslint/consistent-type-assertions": "error",
