@@ -17,9 +17,9 @@
   "dependencies": {
     "prosemirror-example-setup": "^1.2.1",
     "prosemirror-menu": "^1.2.1",
-    "prosemirror-remark": "^0.3.0",
+    "prosemirror-remark": "^0.5.0",
     "prosemirror-state": "^1.4.2",
-    "prosemirror-unified": "^0.3.0",
+    "prosemirror-unified": "^0.7.0",
     "prosemirror-view": "^1.30.2",
     "rehype-sanitize": "^6.0.0",
     "rehype-stringify": "^10.0.0",
