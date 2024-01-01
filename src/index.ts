@@ -26,6 +26,7 @@ const view = new EditorView(editor, {
     plugins: [adapter.inputRulesPlugin(), adapter.keymapPlugin()],
     schema: adapter.schema(),
   }),
+  nodeViews: adapter.nodeViews(),
   dispatchTransaction: (tr): void => {
     view.updateState(view.state.apply(tr));
     void updatePreview(adapter.serialize(view.state.doc));
