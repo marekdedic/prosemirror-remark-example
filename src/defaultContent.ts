@@ -66,6 +66,14 @@ Ordered\n\
 1. You can use sequential numbers...\n\
 1. ...or keep all the numbers as `1.`\n\
 \n\
+Task list\n\
+\n\
+- [ ] Unchecked\n\
+- [ ] Unchecked\n\
+- [x] Checked\n\
+- [x] Checked\n\
+- [ ] Unchecked\n\
+\n\
 Start numbering with offset:\n\
 \n\
 57. foo\n\
