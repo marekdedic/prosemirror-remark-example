@@ -2,12 +2,13 @@ import "prosemirror-view/style/prosemirror.css";
 import "prosemirror-example-setup/style/style.css";
 import "prosemirror-menu/style/menu.css";
 
-import { MarkdownExtension } from "prosemirror-remark";
+import { GFMExtension } from "prosemirror-remark";
 import { EditorState } from "prosemirror-state";
 import { ProseMirrorUnified } from "prosemirror-unified";
 import { EditorView } from "prosemirror-view";
 import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
+import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
@@ -17,7 +18,7 @@ import { defaultContent } from "./defaultContent";
 const editor = document.querySelector("#editor")!;
 const preview = document.querySelector("#preview-container")!;
 
-const adapter = new ProseMirrorUnified([new MarkdownExtension()]);
+const adapter = new ProseMirrorUnified([new GFMExtension()]);
 
 const view = new EditorView(editor, {
   state: EditorState.create({
@@ -34,6 +35,7 @@ const view = new EditorView(editor, {
 async function updatePreview(source: string): Promise<void> {
   const file = await unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkRehype)
     .use(rehypeSanitize)
     .use(rehypeStringify)
