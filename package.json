@@ -8,6 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/marekdedic/prosemirror-remark-example.git"
   },
+  "type": "module",
   "scripts": {
     "clean": "rimraf dist/*",
     "prebuild": "npm run clean",
