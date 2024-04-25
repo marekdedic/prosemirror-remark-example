@@ -1,12 +1,11 @@
 /* eslint-env node */
 
-const path = require("path");
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+import { SubresourceIntegrityPlugin } from "webpack-subresource-integrity";
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { SubresourceIntegrityPlugin } = require("webpack-subresource-integrity");
-
-module.exports = () => ({
+export default () => ({
   mode: "development",
   devtool: "source-map",
   plugins: [
