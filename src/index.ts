@@ -20,6 +20,18 @@ const preview = document.querySelector("#preview-container")!;
 
 const adapter = new ProseMirrorUnified([new GFMExtension()]);
 
+async function updatePreview(source: string): Promise<void> {
+  const file = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeSanitize)
+    .use(rehypeStringify)
+    .process(source);
+
+  preview.innerHTML = String(file);
+}
+
 const view = new EditorView(editor, {
   state: EditorState.create({
     doc: adapter.parse(defaultContent),
@@ -32,17 +44,5 @@ const view = new EditorView(editor, {
     void updatePreview(adapter.serialize(view.state.doc));
   },
 });
-
-async function updatePreview(source: string): Promise<void> {
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeSanitize)
-    .use(rehypeStringify)
-    .process(source);
-
-  preview.innerHTML = String(file);
-}
 
 void updatePreview(defaultContent);
