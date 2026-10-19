@@ -1,7 +1,6 @@
 import "prosemirror-view/style/prosemirror.css";
 import "prosemirror-example-setup/style/style.css";
 import "prosemirror-menu/style/menu.css";
-
 import { GFMExtension } from "prosemirror-remark";
 import { EditorState } from "prosemirror-state";
 import { ProseMirrorUnified } from "prosemirror-unified";
@@ -33,16 +32,16 @@ async function updatePreview(source: string): Promise<void> {
 }
 
 const view = new EditorView(editor, {
+  dispatchTransaction: (tr): void => {
+    view.updateState(view.state.apply(tr));
+    void updatePreview(adapter.serialize(view.state.doc));
+  },
+  nodeViews: adapter.nodeViews(),
   state: EditorState.create({
     doc: adapter.parse(defaultContent),
     plugins: [adapter.inputRulesPlugin(), adapter.keymapPlugin()],
     schema: adapter.schema(),
   }),
-  nodeViews: adapter.nodeViews(),
-  dispatchTransaction: (tr): void => {
-    view.updateState(view.state.apply(tr));
-    void updatePreview(adapter.serialize(view.state.doc));
-  },
 });
 
 void updatePreview(defaultContent);
