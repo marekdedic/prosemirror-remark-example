@@ -1,6 +1,7 @@
 import "prosemirror-view/style/prosemirror.css";
 import "prosemirror-example-setup/style/style.css";
 import "prosemirror-menu/style/menu.css";
+import "prosemirror-remark/style.css";
 import { GFMExtension } from "prosemirror-remark";
 import { EditorState } from "prosemirror-state";
 import { ProseMirrorUnified } from "prosemirror-unified";
