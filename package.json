@@ -10,7 +10,9 @@
   },
   "scripts": {
     "build": "vite build",
-    "lint": "eslint",
+    "lint": "npm run lint:tsc && npm run lint:eslint",
+    "lint:eslint": "eslint",
+    "lint:tsc": "tsc --noEmit",
     "start": "vite"
   },
   "dependencies": {
