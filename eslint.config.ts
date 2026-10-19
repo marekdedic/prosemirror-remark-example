@@ -176,7 +176,6 @@ export default defineConfig(
         "error",
         { allowAsThisParameter: true },
       ],
-      "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/no-shadow": "error",
       "@typescript-eslint/no-unnecessary-parameter-property-assignment":
         "error",

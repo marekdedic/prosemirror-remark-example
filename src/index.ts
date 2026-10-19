@@ -14,8 +14,8 @@ import { unified } from "unified";
 
 import { defaultContent } from "./defaultContent";
 
-const editor = document.querySelector("#editor")!;
-const preview = document.querySelector("#preview-container")!;
+const editor = document.querySelector("#editor");
+const preview = document.querySelector("#preview-container");
 
 const adapter = new ProseMirrorUnified([new GFMExtension()]);
 
@@ -28,7 +28,9 @@ async function updatePreview(source: string): Promise<void> {
     .use(rehypeStringify)
     .process(source);
 
-  preview.innerHTML = String(file);
+  if (preview !== null) {
+    preview.innerHTML = String(file);
+  }
 }
 
 const view = new EditorView(editor, {
